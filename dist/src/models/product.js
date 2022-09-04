@@ -19,7 +19,6 @@ const Product = db_1.default.define("Product", {
     },
     url_image: {
         type: sequelize_1.DataTypes.STRING,
-        //   field: "url_image",
         allowNull: false,
     },
     price: {

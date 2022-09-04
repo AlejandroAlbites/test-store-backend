@@ -30,6 +30,13 @@ const getCategories = (req, res) => __awaiter(void 0, void 0, void 0, function* 
                 amount: (_a = item.Products) === null || _a === void 0 ? void 0 : _a.length,
             };
         });
+        const allProducts = {
+            id: 0,
+            name: "todos",
+            amount: 57,
+        };
+        categoryWithAmount.push(allProducts);
+        categoryWithAmount.reverse();
         return res.json({
             ok: true,
             msg: "categories found",

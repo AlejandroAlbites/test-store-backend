@@ -2,7 +2,7 @@ import { DataTypes, Model } from "sequelize";
 import db from "../db";
 
 export interface CategoryEntry extends Model {
-  id: string;
+  id: number;
   name: string;
   Products?: Array<object>;
 }

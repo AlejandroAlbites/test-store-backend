@@ -17,7 +17,14 @@ export const getCategories = async (req: Request, res: Response) => {
         amount: item.Products?.length,
       };
     });
+    const allProducts = {
+      id: 0,
+      name: "todos",
+      amount: 57,
+    };
 
+    categoryWithAmount.push(allProducts);
+    categoryWithAmount.reverse();
     return res.json({
       ok: true,
       msg: "categories found",

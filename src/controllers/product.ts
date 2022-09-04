@@ -3,7 +3,6 @@ import { Request, Response } from "express";
 import Product from "../models/product";
 import Category from "../models/category";
 import { Op } from "sequelize";
-import { validationResult } from "express-validator";
 
 export const getProducts = async (req: Request, res: Response) => {
   try {
