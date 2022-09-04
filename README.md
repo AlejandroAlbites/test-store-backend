@@ -6,10 +6,10 @@
 
 Este proyecto es una API-REST para obtener una lista de productos para una tienda. En la cual un usuario puede realizar las siguientes funciones:
 
-1. Listas todas las categorias que tiene la tienda.
+1. Listas todas las categorías que tiene la tienda.
 2. Listar todos los productos de la tienda.
 3. Realizar un filtro de los productos de la tienda por nombre.
-4. Realizar un filtro de los productos de la tienda por categoria.
+4. Realizar un filtro de los productos de la tienda por categoría.
 
 ### Requerimientos
 
@@ -38,7 +38,7 @@ https://bsale-store-backend.herokuapp.com/api/categories/
 | /api/categories/               | GET       | Lista todas las categorías disponibles      |
 | /api/products/?name=&category= | GET       | Lista todas todos los productos disponibles |
 
-### Estructura JSON - end point de Categorias
+### Estructura JSON - end point de Categorías
 
 Pruebas realizadas con el aplicativo POSTMAN en un servidor local:
 
@@ -48,7 +48,7 @@ http://localhost:8000/api/categories/
 
 #### Respuesta
 
-Al realizar la petición, el servicio retornara un JSON con la siguiente estructura:
+Al realizar la petición, el servicio retornará un JSON con la siguiente estructura:
 
 ```json
 {
@@ -105,7 +105,7 @@ Al realizar la petición, el servicio retornara un JSON con la siguiente estruct
 
 - categories: Lista las categorías dentro de un arreglo de objetos.
 
-- id: Id unico de la categoría.
+- id: Id único de la categoría.
 
 - name: Nombre de la categoría.
 
@@ -119,13 +119,13 @@ Para listar los productos realice una petición GET al siguiente end point:
 
 http://localhost:8000/api/products/?name=&category=
 
-Este end point utiliza los query params para obtener los datos filtrados. Si no se envía ningun valor tomará los parametros vacios y retornará el total de los productos.
+Este end point utiliza los query params para obtener los datos filtrados. Si no se envía ningún valor tomará los parámetros vacíos y retornará el total de los productos.
 
-- Por ejemplo al realizar un filtro por categoría en la clave-valor de categoría ingresamos el Id de la categoría que deseamos filtrar, en este ejemplo se agrego el valor 6 para realizar un filtro por cervezas.
+- Por ejemplo al realizar un filtro por categoría en la clave-valor de categoría ingresamos el Id de la categoría que deseamos filtrar, en este ejemplo se agregó el valor 6 para realizar un filtro por cervezas.
 
 http://localhost:8000/api/products/?name=&category=6
 
-- De igual forma se puede realizar un filtro por nombre, agregando el nombre en la clave-valor name, en este ejemplo se agrego el valor papas, para realizar un filtro por papas.
+- De igual forma se puede realizar un filtro por nombre, agregando el nombre en la clave-valor name, en este ejemplo se agregó el valor papas, para realizar un filtro por papas.
 
 http://localhost:8000/api/products/?name=papas&category=
 
@@ -135,7 +135,7 @@ Tomando el siguiente ejemplo:
 
 http://localhost:8000/api/products/?name=&category=7
 
-Al realizar la petición, el servicio retornara un JSON con la siguiente estructura:
+Al realizar la petición, el servicio retornará un JSON con la siguiente estructura:
 
 ```json
 {
@@ -167,7 +167,7 @@ Al realizar la petición, el servicio retornara un JSON con la siguiente estruct
 
 - rows: Lista los productos encontrados dentro de un arreglo de objetos.
 
-- id: Id unico del producto
+- id: Id único del producto
 
 - name: Nombre del producto.
 
@@ -183,21 +183,21 @@ Al realizar la petición, el servicio retornara un JSON con la siguiente estruct
 
 ## ACERCA DEL BACKEND
 
-El servidor fue realizado con NodeJS y el framework de Express, Para la interacción con la base de datos se uso el ORM Sequelize, el cual nos ayuda a mantener una conexión keep Alive, cuando el servidor esta activo.
+El servidor fue realizado con NodeJS y el framework de Express, Para la interacción con la base de datos se usó el ORM Sequelize, el cual nos ayuda a mantener una conexión keep Alive, cuando el servidor está activo.
 
 ### Glosario de archivos y carpetas
 
 #### Archivos principales
 
 - app.ts: Archivo principal donde iniciamos el servidor.
-- src/server.ts: Archivo donde creamos el servidor en una clase, definimos las rutas de nuetra API, iniciamos conexión con la base de datos.
+- src/server.ts: Archivo donde creamos el servidor en una clase, definimos las rutas de nuestra API, iniciamos conexión con la base de datos.
 - src/db.ts: Archivo donde se configura Sequelize con la base de datos asignada para el test.
 
 #### Carpetas
 
-- src/controllers: Carpeta donde definimos los controladores de las categorías y productos, en los controladores se realiza la logica para buscar los datos de la base de datos y dar respuesta de las peticiones en formato Json.
+- src/controllers: Carpeta donde definimos los controladores de las categorías y productos, en los controladores se realiza la lógica para buscar los datos de la base de datos y dar respuesta de las peticiones en formato Json.
 - src/models: Carpeta donde definimos el modelo de nuestras tablas "category" y "products", se establecen las relaciones entre tablas.
-- src/routes: Carpeta donde se define el tipo de petición y la ruta del endpoint. En el archivo de product se agrego un middleware de validacion en la ruta.
-- src/validators: Carpeta donde se crea la validacion de las rutas, se uso la libreria express-validator. En el archivo product se define el valor por defecto por si se envian datos vacios, o si se envian datos erroneos. Por ejemplo para realizar un filtro por categoria, el valor que acepta son numeros entre 0 y 7, ya que ese es el rango de los id de las categorias.
+- src/routes: Carpeta donde se define el tipo de petición y la ruta del endpoint. En el archivo de product se agregó un middleware de validación en la ruta.
+- src/validators: Carpeta donde se crea la validación de las rutas, se usó la libreria express-validator. En el archivo product se define el valor por defecto por si se envían datos vacíos, o si se envían datos erróneos. Por ejemplo para realizar un filtro por categoría, el valor que acepta son números entre 0 y 7, ya que ese es el rango de los id de las categorías.
 
 ###End
